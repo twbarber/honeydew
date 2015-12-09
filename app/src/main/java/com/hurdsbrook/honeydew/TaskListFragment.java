@@ -9,14 +9,17 @@ import android.view.ViewGroup;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class DisplayTasksFragment extends Fragment {
+public class TaskListFragment extends Fragment {
 
-    public DisplayTasksFragment() {
+    public TaskListFragment() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_home, container, false);
+
+        View v = inflater.inflate(R.layout.task_list, container, false);
+
+        return v;
     }
 }

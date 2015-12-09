@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
         android:ems="10"
-        android:id="@+id/edit_task_details" />
+        android:id="@+id/edit_task_description" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,12 +37,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight=".5"
+            android:id="@+id/cancel_add_button"
             android:text="@string/cancel_task"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight=".5"
+            android:id="@+id/save_add_button"
             android:text="@string/save_task"/>
 
     </LinearLayout>

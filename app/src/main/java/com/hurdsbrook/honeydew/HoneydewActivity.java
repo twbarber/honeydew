@@ -1,8 +1,8 @@
 package com.hurdsbrook.honeydew;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -22,11 +22,14 @@ public class HoneydewActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                ft.replace(R.id.fragment_container, new AddItemFragment());
-                ft.commit();
+                addItem(view);
             }
         });
+    }
+
+    private void addItem(View v) {
+        Intent i = new Intent(this, AddItemActivity.class);
+        startActivity(i);
     }
 
     @Override
