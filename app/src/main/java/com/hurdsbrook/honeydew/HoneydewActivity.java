@@ -9,7 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-public class DisplayTasksActivity extends AppCompatActivity {
+public class HoneydewActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +23,7 @@ public class DisplayTasksActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                ft.add(R.id.fragment_container, new AddItemFragment());
+                ft.replace(R.id.fragment_container, new AddItemFragment());
                 ft.commit();
             }
         });

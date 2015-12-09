@@ -2,4 +2,7 @@
     <string name="app_name">Honeydew</string>
     <string name="action_settings">Settings</string>
     <string name="task">Task</string>
+    <string name="description">Description</string>
+    <string name="save_task">Save</string>
+    <string name="cancel_task">Cancel</string>
 </resources>
