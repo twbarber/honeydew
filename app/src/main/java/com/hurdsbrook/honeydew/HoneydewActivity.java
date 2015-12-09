@@ -1,6 +1,7 @@
 package com.hurdsbrook.honeydew;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,8 @@ import android.view.MenuItem;
 import android.view.View;
 
 public class HoneydewActivity extends AppCompatActivity {
+
+    static final int ADD_TASK_REQUEST = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +31,8 @@ public class HoneydewActivity extends AppCompatActivity {
     }
 
     private void addItem(View v) {
-        Intent i = new Intent(this, AddTaskActivity.class);
-        startActivity(i);
+        Intent addTaskIntent = new Intent(this, AddTaskActivity.class);
+        startActivityForResult(addTaskIntent, ADD_TASK_REQUEST);
     }
 
     @Override
@@ -52,5 +55,15 @@ public class HoneydewActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // Check which request we're responding to
+        if (requestCode == ADD_TASK_REQUEST) {
+            if (resultCode == RESULT_OK) {
+                Uri taskToAdd = data.getData();
+            }
+        }
     }
 }
