@@ -28,7 +28,7 @@ public class HoneydewActivity extends AppCompatActivity {
     }
 
     private void addItem(View v) {
-        Intent i = new Intent(this, AddItemActivity.class);
+        Intent i = new Intent(this, AddTaskActivity.class);
         startActivity(i);
     }
 
