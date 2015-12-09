@@ -1,13 +1,14 @@
 package com.hurdsbrook.honeydew;
 
 import android.os.Bundle;
-import android.app.Activity;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class AddItemActivity extends Activity {
+public class AddTaskActivity extends AppCompatActivity {
 
     private Button mSaveButton;
     private Button mCancelButton;
@@ -18,6 +19,8 @@ public class AddItemActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_item);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.item_add_toolbar);
+        setSupportActionBar(myToolbar);
 
         mTaskName = (TextView) findViewById(R.id.edit_task_name);
         mTaskDescription = (TextView) findViewById(R.id.edit_task_description);
