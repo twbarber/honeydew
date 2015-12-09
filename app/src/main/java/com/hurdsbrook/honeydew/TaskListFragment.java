@@ -6,19 +6,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.Collection;
+
 /**
  * A placeholder fragment containing a simple view.
  */
 public class TaskListFragment extends Fragment {
 
-    public TaskListFragment() {
-    }
+    private Collection<Task> mTasks;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
 
-        View v = inflater.inflate(R.layout.task_list, container, false);
+        View v = inflater.inflate(R.layout.fragment_task_list, container, false);
 
         return v;
     }

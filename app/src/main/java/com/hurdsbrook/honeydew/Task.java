@@ -1,12 +1,15 @@
 package com.hurdsbrook.honeydew;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 import java.util.Collection;
 
 /**
  * Created by tyler on 12/8/15.
  */
-public class Task {
+public class Task implements Parcelable {
 
     private String name;
     private String description;
@@ -19,6 +22,24 @@ public class Task {
         this.subtasks = new ArrayList<>();
         this.isComplete = false;
     }
+
+    protected Task(Parcel in) {
+        name = in.readString();
+        description = in.readString();
+        isComplete = in.readByte() != 0;
+    }
+
+    public static final Creator<Task> CREATOR = new Creator<Task>() {
+        @Override
+        public Task createFromParcel(Parcel in) {
+            return new Task(in);
+        }
+
+        @Override
+        public Task[] newArray(int size) {
+            return new Task[size];
+        }
+    };
 
     public String getDescription() {
         return description;
@@ -56,4 +77,15 @@ public class Task {
         this.subtasks.clear();
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+        dest.writeString(description);
+        dest.writeByte((byte) (isComplete ? 1 : 0));
+    }
 }
