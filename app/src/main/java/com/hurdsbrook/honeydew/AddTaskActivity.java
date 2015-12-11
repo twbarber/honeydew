@@ -8,6 +8,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * Activity to add new Tasks to your task list.
+ */
 public class AddTaskActivity extends AppCompatActivity {
 
     private Button mSaveButton;

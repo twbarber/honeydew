@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import java.util.Collection;
 
 /**
- * A placeholder fragment containing a simple view.
+ * Fragment used to display list of Tasks.
  */
 public class TaskListFragment extends Fragment {
 

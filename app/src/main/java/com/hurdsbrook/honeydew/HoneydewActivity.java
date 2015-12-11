@@ -10,6 +10,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+/**
+ * Main HoneyDew activity. By default displays lists of tasks.
+ */
 public class HoneydewActivity extends AppCompatActivity {
 
     static final int ADD_TASK_REQUEST = 1;

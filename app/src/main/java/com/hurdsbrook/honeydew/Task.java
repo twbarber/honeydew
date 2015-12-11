@@ -5,15 +5,16 @@ import android.os.Parcelable;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 /**
- * Created by tyler on 12/8/15.
+ *  Task class used for populating task lists.
  */
 public class Task implements Parcelable {
 
     private String name;
     private String description;
-    private Collection<Task> subtasks;
+    private ArrayList<Task> subtasks;
     private boolean isComplete;
 
     public Task(String name, String description) {
@@ -22,24 +23,6 @@ public class Task implements Parcelable {
         this.subtasks = new ArrayList<>();
         this.isComplete = false;
     }
-
-    protected Task(Parcel in) {
-        name = in.readString();
-        description = in.readString();
-        isComplete = in.readByte() != 0;
-    }
-
-    public static final Creator<Task> CREATOR = new Creator<Task>() {
-        @Override
-        public Task createFromParcel(Parcel in) {
-            return new Task(in);
-        }
-
-        @Override
-        public Task[] newArray(int size) {
-            return new Task[size];
-        }
-    };
 
     public String getDescription() {
         return description;
@@ -84,8 +67,27 @@ public class Task implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(name);
-        dest.writeString(description);
-        dest.writeByte((byte) (isComplete ? 1 : 0));
+        dest.writeString(this.name);
+        dest.writeString(this.description);
+        dest.writeList(this.subtasks);
+        dest.writeByte(isComplete ? (byte) 1 : (byte) 0);
     }
+
+    protected Task(Parcel in) {
+        this.name = in.readString();
+        this.description = in.readString();
+        this.subtasks = new ArrayList<>();
+        in.readList(this.subtasks, List.class.getClassLoader());
+        this.isComplete = in.readByte() != 0;
+    }
+
+    public static final Parcelable.Creator<Task> CREATOR = new Parcelable.Creator<Task>() {
+        public Task createFromParcel(Parcel source) {
+            return new Task(source);
+        }
+
+        public Task[] newArray(int size) {
+            return new Task[size];
+        }
+    };
 }
